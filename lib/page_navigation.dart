@@ -2,6 +2,7 @@
 import 'package:project1/page_passing_data.dart';
 import 'package:flutter/material.dart';
 import 'package:project1/page_column.dart';
+import 'package:project1/page_search_list.dart';
 
 class PageNavigationBar extends StatelessWidget {
   const PageNavigationBar({super.key});
@@ -78,6 +79,14 @@ class PageNavigationBar extends StatelessWidget {
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => PageLogin()));
+                },
+              ),
+              Divider(),
+              ListTile(
+                title: Text("List"),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => PageSearchList()));
                 },
               ),
             ],

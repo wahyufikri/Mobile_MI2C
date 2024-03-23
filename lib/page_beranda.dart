@@ -1,7 +1,10 @@
 import 'package:project1/page_bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
+import 'package:project1/page_list_berita.dart';
+import 'package:project1/page_list_user.dart';
 import 'package:project1/page_navigation.dart';
+import 'package:project1/page_search_list.dart';
 
 class PageBeranda extends StatelessWidget {
   const PageBeranda({super.key});
@@ -142,6 +145,92 @@ class PageBeranda extends StatelessWidget {
                   color: Colors.green,
                   textColor: Colors.white,
                 ),
+                SizedBox(
+                  height: 5,
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    //tambahkan code toast
+                    showToast(
+                      'Pindah ke Page Navigation',
+                      context: context,
+                      axis: Axis.horizontal,
+                      alignment: Alignment.center,
+                      position: StyledToastPosition.bottom,
+                      toastHorizontalMargin: 28,
+                      fullWidth: true,
+                    );
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PageSearchList()));
+                  },
+                  child: Text(
+                    'Buttom Navigation Bar',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  ),
+                  color: Colors.green,
+                  textColor: Colors.white,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                MaterialButton(
+                  onPressed: () {
+                    //tambahkan code toast
+                    showToast(
+                      'Pindah ke Page Navigation',
+                      context: context,
+                      axis: Axis.horizontal,
+                      alignment: Alignment.center,
+                      position: StyledToastPosition.bottom,
+                      toastHorizontalMargin: 28,
+                      fullWidth: true,
+                    );
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PageListUsers()));
+                  },
+                  child: Text(
+                    'Buttom Navigation Bar',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                  ),
+                  color: Colors.green,
+                  textColor: Colors.white,
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                MaterialButton(
+                    onPressed: () {
+                      //tambahkan code toast
+                      showToast(
+                        'show Search',
+                        context: context,
+                        axis: Axis.horizontal,
+                        alignment: Alignment.center,
+                        position: StyledToastPosition.bottom,
+                        toastHorizontalMargin: 28,
+                        fullWidth: true,
+                      );
+
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => PageListBerita()
+                          ));
+
+                    },
+                    child: Text(
+                      'Search',
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                    ),
+                    color: Colors.green,
+                    textColor: Colors.white,
+                    )
+
+
 
 
               ],
