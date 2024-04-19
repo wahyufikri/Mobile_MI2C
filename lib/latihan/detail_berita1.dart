@@ -1,9 +1,9 @@
+import 'package:project1/model/model_berita.dart';
 import 'package:flutter/material.dart';
-
-import '../model/model_berita.dart';
+//import 'package:flutter_basic/news/res/res_berita.dart';
 import 'package:intl/intl.dart';
-class DetailBerita extends StatelessWidget {
 
+class DetailBerita extends StatelessWidget {
   final Datum? data;
   const DetailBerita(this.data, {super.key});
   @override
@@ -21,7 +21,7 @@ class DetailBerita extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(10),
                   child: Image.network(
-                    "http://192.168.221.167/beritaDb/gambar_berita/${data?.gambarBerita}",
+                    'http://192.168.35.167/edukasi_server/gambar_berita/${data?.gambarBerita}',
                     fit: BoxFit.fill,
                   ),
                 ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:project1/page_login_api.dart';
+import 'package:project1/utils/session_manager.dart';
 
 import '../model/model_berita.dart';
 import 'package:http/http.dart' as http;
@@ -15,12 +17,25 @@ class PageListBerita extends StatefulWidget {
 
 class _PageListBeritaState extends State<PageListBerita> {
 
+  String? userName;
+
+  Future getDataSession() async{
+    await Future.delayed(const Duration(seconds: 5),(){
+     session.getSession().then((value) {
+       print('data sesi .. ' + value.toString());
+       userName = session.userName;
+     });
+    });
+  }
+
+
+
   //method untuk get berita
   Future<List<Datum>?> getBerita() async {
     try {
       //berhasil
       http.Response response = await
-      http.get(Uri.parse('http://192.168.209.167/beritaDb/getBerita.php'));
+      http.get(Uri.parse('http://192.168.221.167/beritaDb/getBerita.php'));
 
       return modelBeritaFromJson(response.body).data;
     } catch (e) {
@@ -29,10 +44,33 @@ class _PageListBeritaState extends State<PageListBerita> {
       );
     }
   }
-
+ @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('aplikasi berita'),
+        backgroundColor: Colors.cyan,
+        actions: [
+          TextButton(onPressed: (){}, child: Text('Hi .. ${session.userName}')),
+          //logout
+          IconButton(onPressed: (){
+            //clear session
+            setState(() {
+              session.clearSession();
+              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)
+              => PageLoginApi()
+              ),
+                      (route) => false);
+            });
+          },
+            icon: Icon(Icons.exit_to_app), tooltip: 'Logout',)
+          ],
+      ),
         body: FutureBuilder(
             future: getBerita(),
             builder: (BuildContext context, AsyncSnapshot<List<Datum>?> snapshot) {
@@ -60,7 +98,7 @@ class _PageListBeritaState extends State<PageListBerita> {
                                   child: ClipRRect(
                                     borderRadius: BorderRadius.circular(10),
                                     child: Image.network(
-                                      'http://192.168.209.167/beritaDb/gambar_berita/${data?.gambarBerita}',
+                                      'http://192.168.221.167/beritaDb/gambar_berita/${data?.gambarBerita}',
                                       fit: BoxFit.fill,
                                     ),
                                   ),
