@@ -3,6 +3,10 @@ import 'package:project1/page_beranda.dart';
 import 'package:project1/page_column.dart';
 
 import 'package:flutter/material.dart';
+import 'package:project1/page_login_api.dart';
+import 'package:project1/page_register_api.dart';
+
+import 'latihan/login_api.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +39,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PageBeranda(),
+      home: const PageLoginApi2(),
       debugShowCheckedModeBanner: false,
     );
   }

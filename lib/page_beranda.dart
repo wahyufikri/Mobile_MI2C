@@ -166,7 +166,7 @@ class PageBeranda extends StatelessWidget {
                             builder: (context) => PageSearchList()));
                   },
                   child: Text(
-                    'Buttom Navigation Bar',
+                    'Search List',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
                   ),
                   color: Colors.green,
