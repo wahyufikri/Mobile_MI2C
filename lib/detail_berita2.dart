@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../model/model_berita2.dart';
+import 'package:project1/model/model_berita2.dart';
 import 'package:intl/intl.dart';
 class DetailBerita2 extends StatelessWidget {
 

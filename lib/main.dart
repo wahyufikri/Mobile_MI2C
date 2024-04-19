@@ -1,3 +1,4 @@
+import 'package:project1/latihan/spash_screen.dart';
 import 'package:project1/latihansatu2015.dart';
 import 'package:project1/page_beranda.dart';
 import 'package:project1/page_column.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PageLoginApi2(),
+      home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
